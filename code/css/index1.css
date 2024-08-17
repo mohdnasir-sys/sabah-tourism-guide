@@ -91,25 +91,36 @@ nav {
 }
 
 .menu li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.5s ease;
+}
+
+.menu li a:hover {
+  color: #ffa343;
 }
 
 .subscribe-btn,
 .login-btn {
-  background-color: #ff5722;
+  background-color: #ffa343;
   padding: 10px 20px;
   border-radius: 5px;
   color: white;
   text-align: center;
   display: inline-block;
   font-size: 18px;
+  border: 2px solid transparent;
+  transition: all 0.5s ease;
 }
 
 .subscribe-btn:hover,
 .login-btn:hover {
-  background-color: #e64a19;
+  transform: translateX(10px);
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
 }
 
 .home {
@@ -264,14 +275,347 @@ nav {
   color: #fff;
 }
 
+/* section1 */
+.sec-01 {
+  /* Optional: Adjust position and display if needed */
+  /*position: relative;*/
+  /*display: flex; /* Use flexbox to center contents */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  /*padding: 80px 100px;*/ /* Uncomment if needed for spacing */
+  color: #fff;
+  margin-top: 300px; /* Adjust top margin as needed */
+  width: 100%; /* Full width */
+  background-color: #111222;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 4em;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+  z-index: 1;
+}
+
+.box1 {
+  position: relative;
+  width: 850px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #03a9f4; */
+  /*margin-top: -60px;*/
+}
+
+.lightbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 28px;
+  width: 10px;
+  height: 100%;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff,
+    0 0 80px #00b3ff, 0 0 120px #00b3ff;
+  animation: animatelightbar 5s linear infinite;
+  z-index: 3;
+}
+
+@keyframes animatelightbar {
+  0%,
+  5% {
+    transform: scaleY(0) translateX(0);
+  }
+
+  10% {
+    transform: scaleY(1) translateX(0);
+  }
+
+  90% {
+    transform: scaleY(1) translateX(calc(850px - 10px));
+  }
+
+  95%,
+  100% {
+    transform: scaleY(0) translateX(calc(850px - 10px));
+  }
+}
+
+.toplayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111222;
+  z-index: 2;
+  margin-top: 35px;
+  animation: animatetoplayer 10s linear infinite;
+}
+
+@keyframes animatetoplayer {
+  0%,
+  2.5% {
+    transform: translateX(0);
+  }
+
+  5% {
+    transform: translateX(0);
+  }
+
+  45% {
+    transform: translateX(100%);
+  }
+
+  47.5%,
+  50% {
+    transform: translateX(100%);
+  }
+
+  50.001%,
+  52.5% {
+    transform: translateX(-100%);
+  }
+
+  55% {
+    transform: translateX(-100%);
+  }
+
+  95% {
+    transform: translateX(0%);
+  }
+
+  97.5%,
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.container-1 {
+  position: relative;
+  display: flex;
+  padding: 80px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.card {
+  position: relative;
+  width: 350px;
+  height: 180px;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.card:hover {
+  height: 450px;
+}
+
+.card .lines {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.card .lines::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 120px;
+  background: linear-gradient(
+    transparent,
+    #45f3ff,
+    #45f3ff,
+    #45f3ff,
+    transparent
+  );
+  animation: animate1 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.card:hover .lines::before {
+  animation-play-state: running;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.card .lines::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #292929;
+}
+
+.card .imgBx {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  transform: translateX(-50%);
+  background: #000;
+  transition: 0.5s;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover .imgBx {
+  top: 25px;
+  width: 300px;
+  height: 200px;
+}
+
+.card .imgBx::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    transparent,
+    #ff3c7b,
+    #ff3c7b,
+    #ff3c7b,
+    transparent
+  );
+  animation: animate2 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.card:hover .imgBx::before {
+  animation-play-state: running;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+.card .imgBx::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #292929;
+}
+
+.card .imgBx img {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  z-index: 1;
+  /* filter: invert(1); */
+  /* opacity: 0.5; */
+  transition: 0.5s;
+}
+
+.card:hover .imgBx img {
+  opacity: 1;
+}
+
+.card .content-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.card .content-1 .details {
+  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
+  transition: 0.5s;
+  transform: translateY(145px);
+}
+
+.card:hover .content-1 .details {
+  transform: translateY(0);
+}
+
+.card .content-1 .details h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #45f3ff;
+  transition: 0.5s;
+}
+
+.card .content-1 .details p {
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card .content-1 .details a {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #45f3ff;
+  color: #292929;
+  margin-top: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card:hover .content-1 .details p,
+.card:hover .content-1 .details a,
+.card:hover .content-1 .details h3 {
+  opacity: 1;
+}
+
+.card:hover .content-1 .details h2 {
+  opacity: 0;
+}
+
+.card .content-1 .details h3 {
+  color: #ff3c7b;
+  opacity: 0;
+  transition: 0.5s;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
+  /* header */
   .menu {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*background-color: rgba(0, 77, 64, 0.8); /* Semi-transparent background */
     background: transparent; /* Make background transparent */
     backdrop-filter: blur(30px); /* Apply blur effect */
     position: fixed;
@@ -321,6 +665,7 @@ nav {
 }
 
 @media (max-width: 480px) {
+  /* header */
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -341,5 +686,132 @@ nav {
 
   .menu li a {
     font-size: 20px;
+  }
+
+  /* section1 */
+  .sec-01 {
+    /* Optional: Adjust position and display if needed */
+    /*position: relative;*/
+    /*display: flex; /* Use flexbox to center contents */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    /*padding: 80px 100px;*/ /* Uncomment if needed for spacing */
+    color: #fff;
+    margin-top: 300px; /* Adjust top margin as needed */
+    width: 100%; /* Full width */
+    background-color: #111222;
+    overflow-x: hidden;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .main-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+    z-index: 1;
+  }
+
+  .box1 {
+    position: relative;
+    width: 350px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #03a9f4;*/
+    /*margin-top: -60px;*/
+  }
+
+  .lightbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3px;
+    width: 10px;
+    height: 100%;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff,
+      0 0 80px #00b3ff, 0 0 120px #00b3ff;
+    animation: animatelightbar 5s linear infinite;
+    z-index: 3;
+  }
+
+  @keyframes animatelightbar {
+    0%,
+    5% {
+      transform: scaleY(0) translateX(0);
+    }
+
+    10% {
+      transform: scaleY(1) translateX(0);
+    }
+
+    90% {
+      transform: scaleY(1) translateX(calc(350px - 10px));
+    }
+
+    95%,
+    100% {
+      transform: scaleY(0) translateX(calc(350px - 10px));
+    }
+  }
+
+  .toplayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111222;
+    z-index: 2;
+    margin-top: 3px;
+    animation: animatetoplayer 10s linear infinite;
+  }
+
+  @keyframes animatetoplayer {
+    0%,
+    2.5% {
+      transform: translateX(0);
+    }
+
+    5% {
+      transform: translateX(0);
+    }
+
+    45% {
+      transform: translateX(100%);
+    }
+
+    47.5%,
+    50% {
+      transform: translateX(100%);
+    }
+
+    50.001%,
+    52.5% {
+      transform: translateX(-100%);
+    }
+
+    55% {
+      transform: translateX(-100%);
+    }
+
+    95% {
+      transform: translateX(0%);
+    }
+
+    97.5%,
+    100% {
+      transform: translateX(0%);
+    }
   }
 }
